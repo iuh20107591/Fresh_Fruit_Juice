@@ -1,0 +1,165 @@
+/* Toàn bộ layout chiếm chiều cao 100% */
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+/* Wrapper layout */
+#wrapper {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+main{
+    flex: 1;
+}
+
+footer{
+    width: 100%;
+    margin-top: auto;
+}
+
+main.container {
+    flex: 1;
+    padding-bottom: 3rem;
+}
+
+/* Header dính */
+.sticky-top-header {
+    position: sticky;
+    top: 0;
+    z-index: 1020;
+    background-color: white;
+}
+
+/* Sidebar sticky và không quá rộng */
+@media (min-width: 768px) {
+    .sticky-sidebar {
+        position: sticky;
+        top: 165px; /* khoảng cách từ top (sau header/navbar) */
+        max-height: calc(100vh - 180px);
+        overflow-y: auto;
+        background-color: #f8f9fa;
+        padding: 1rem;
+        border-right: 1px solid #dee2e6;
+        min-width: 200px;
+        max-width: 250px;
+    }
+
+    /* Tối ưu độ rộng col-md-3 */
+    .row > .col-md-3 {
+        flex: 0 0 auto;
+        width: auto;
+    }
+}
+
+/* Mobile responsive */
+@media (max-width: 767.98px) {
+    .navbar-brand {
+        font-size: 1rem;
+    }
+
+    header h1 {
+        font-size: 1.25rem;
+        text-align: center;
+    }
+
+    .card-body h5 {
+        font-size: 1rem;
+    }
+
+    .sticky-sidebar {
+        position: static;
+        max-height: none;
+        overflow: visible;
+        padding: 0;
+        border: none;
+    }
+}
+
+.flash {
+    animation: flash-badge 0.8s ease-in-out;
+}
+
+@keyframes flash-badge {
+    0% { background-color: #dc3545; }
+    50% { background-color: #ff6f61; }
+    100% { background-color: #dc3545; }
+}
+
+#infobtn {
+    border-radius: 20px;
+    font-weight: bold;
+    padding: 6px 14px;
+    box-shadow: 0 0 5px rgba(0,0,0,0.2);
+}
+
+.flash-icon .badge {
+    animation: flash-pulse 1.2s infinite;
+    cursor: pointer;
+}
+
+@keyframes flash-pulse {
+    0% { opacity: 1; }
+    50% { opacity: 0.4; }
+    100% { opacity: 1; }
+}
+
+/* Mặc định ẩn chữ "Thông tin" ở mobile, hiện khi hover (desktop) */
+.flash-icon:hover .info-text {
+    display: inline !important;
+}
+
+/* Hình tròn nhỏ với chữ i */
+.circle-i {
+    width: 22px;
+    height: 22px;
+    background-color: #0dcaf0;
+    color: white;
+    border-radius: 50%;
+    font-size: 0.85rem;
+    line-height: 22px;
+    text-align: center;
+    cursor: pointer;
+}
+
+.flash-ping {
+    animation: flash-ping 1.4s infinite;
+}
+
+@keyframes flash-ping {
+    0% { opacity: 1; }
+    50% { opacity: 0.5; }
+    100% { opacity: 1; }
+}
+
+.info-label {
+    display: none;
+    font-size: 0.85rem;
+    color: #0dcaf0;
+}
+
+.info-trigger:hover .info-label {
+    display: inline;
+}
+
+/* Hiệu ứng hover cho toàn bộ dòng đơn hàng */
+table.table .clickable-row:hover td:not(.action-cell) {
+    background-color: #f86363 !important;
+}
+
+.btn-huydon:hover {
+    background-color: #000000 !important;
+    color: #0ae28f !important;
+    z-index: 999 !important;
+    position: relative;
+}
+
+.center-cell {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+}
